@@ -1,0 +1,8 @@
+//nem követjük a yoda conditions-t
+import java.lang.String;
+public class yoda {
+	public static void main(String[] args) {
+ 		String szoveg = null;
+ 		if (szoveg.equals("valami")) {/*...*/}
+	}
+}
