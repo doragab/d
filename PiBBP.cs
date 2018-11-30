@@ -8,10 +8,13 @@ public class PiBBP {
         for(int k=0; k<=d; ++k)
             d16Sj += (double)n16modk(d-k, 8*k + j) / (double)(8*k + j);
         
-             
-        return d16Sj - Math.floor(d16Sj);
+        /*
+        for(int k=d+1; k<=2*d; ++k)
+            d16Sj += System.Math.pow(16.0d, d-k) / (double)(8*k + j);
+         */
+        
+        return d16Sj - System.Math.Floor(d16Sj);
     }
-    
     public static long n16modk(int n, int k) {
         
         int t = 1;
@@ -38,8 +41,7 @@ public class PiBBP {
         
         return r;
     }
-    
-    public static void main(String args[]) {
+     public static void Main(System.String[]args) { 
         
         double d16Pi = 0.0d;
         
@@ -50,7 +52,7 @@ public class PiBBP {
         
         int jegy = 0;
         
-        long delta = System.currentTimeMillis();
+        System.DateTime kezd = System.DateTime.Now;
         
         for(int d=100000000; d<100000001; ++d) {
             
@@ -63,14 +65,15 @@ public class PiBBP {
             
             d16Pi = 4.0d*d16S1t - 2.0d*d16S4t - d16S5t - d16S6t;
             
-            d16Pi = d16Pi - Math.floor(d16Pi);
+            d16Pi = d16Pi - System.Math.Floor(d16Pi);
             
-            jegy = (int)Math.floor(16.0d*d16Pi);
+            jegy = (int)System.Math.Floor(16.0d*d16Pi);
             
         }
         
-        System.out.println(jegy);
-        delta = System.currentTimeMillis() - delta;
-        System.out.println(delta/1000.0);
+        System.Console.WriteLine(jegy);
+        System.TimeSpan delta = System.DateTime.Now.Subtract(kezd);
+        System.Console.WriteLine(delta.TotalMilliseconds/1000.0);
     }
 } 
+  
